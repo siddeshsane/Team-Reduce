@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'home',
-  template: `./home.component.html`,
+  templateUrl: `./home.component.html`,
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent {
