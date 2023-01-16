@@ -2,3 +2,8 @@ p {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: xx-large;
 }
+td {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: small;
+  border: 1px solid;
+}
