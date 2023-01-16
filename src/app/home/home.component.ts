@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'home',
@@ -6,15 +6,18 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent {
-  pname: string[] = ['Ram', 'Shayam', 'Mohan'];
-  pteam: string[] = ['Team-A', 'Team-B', 'Team-A'];
-  prole: string[] = ['WK', 'AL', 'BL'];
-
-  items: any[];
-
   constructor() {}
+  baseplayers: BasePlayer[] = [
+    { name: 'siddesh', team: 'Team-A', role: 'BL' },
+    { name: 'siddesh', team: 'Team-A', role: 'BL' },
+  ];
 
   public baseplayeradded() {
-    console.log(this.pname[1]);
+    // console.log(this.baseplayers[1].role);
   }
+}
+export interface BasePlayer {
+  name: string;
+  team: string;
+  role: string;
 }

@@ -1,4 +1,4 @@
-<p>Enter Base Players</p>
+<p>Enter Base</p>
 <table>
   <tr>
     <th>Player</th>
@@ -8,16 +8,16 @@
 
   <tr *ngFor="let item of [0, 1, 2]">
     <td>
-      <input name="name1" [(ngModel)]="pname[item]" />
+      <input [(ngModel)]="baseplayers[item].name" />
     </td>
     <td>
-      <select name="team1" [(ngModel)]="pteam[item]">
+      <select [(ngModel)]="baseplayers[item].team">
         <option>Team-A</option>
         <option>Team-B</option>
       </select>
     </td>
     <td>
-      <select name="Role1" [(ngModel)]="prole[item]">
+      <select [(ngModel)]="baseplayers[item].role">
         <option>WK</option>
         <option>BT</option>
         <option>AL</option>
