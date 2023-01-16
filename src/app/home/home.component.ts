@@ -8,7 +8,6 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent {
   baseplayers: BasePlayer[] = [];
   baseCount: Number = 6;
-  tempPlayer: BasePlayer = { name: 'siddesh', team: 'Team-A', role: 'BL' };
 
   constructor() {}
 
@@ -19,7 +18,12 @@ export class HomeComponent {
   // initailizes the app
   private initilize() {
     for (let i = 0; i < this.baseCount; i++) {
-      this.baseplayers.push(this.tempPlayer);
+      var tempPlayer2: BasePlayer = {
+        name: 'siddesh' + i,
+        team: 'Team-A',
+        role: 'BL',
+      };
+      this.baseplayers[i] = tempPlayer2;
     }
   }
 
