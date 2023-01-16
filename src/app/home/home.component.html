@@ -5,12 +5,27 @@
     <th>Team</th>
     <th>Role</th>
   </tr>
-  <tr>
-    <td><input name="name1" value="" /></td>
-    <td><input name="team1" value="" /></td>
-    <td><input name="role1" value="" /></td>
+
+  <tr *ngFor="let item of [0, 1, 2]">
+    <td>
+      <input name="name1" [(ngModel)]="pname[item]" />
+    </td>
+    <td>
+      <select name="team1" [(ngModel)]="pteam[item]">
+        <option>Team-A</option>
+        <option>Team-B</option>
+      </select>
+    </td>
+    <td>
+      <select name="Role1" [(ngModel)]="prole[item]">
+        <option>WK</option>
+        <option>BT</option>
+        <option>AL</option>
+        <option>BL</option>
+      </select>
+    </td>
   </tr>
 </table>
 <hr />
 
-<input type="button" value="Add" />
+<button (click)="baseplayeradded()">Add Base</button>

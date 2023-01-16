@@ -6,5 +6,15 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent {
-  @Input() name: string = 'abcd';
+  pname: string[] = ['Ram', 'Shayam', 'Mohan'];
+  pteam: string[] = ['Team-A', 'Team-B', 'Team-A'];
+  prole: string[] = ['WK', 'AL', 'BL'];
+
+  items: any[];
+
+  constructor() {}
+
+  public baseplayeradded() {
+    console.log(this.pname[1]);
+  }
 }
