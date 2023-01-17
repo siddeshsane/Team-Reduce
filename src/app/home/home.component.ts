@@ -7,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent {
   baseplayers: BasePlayer[] = [];
-  baseCount: Number = 6;
+  basecount: Number;
+  baseArray: number[] = [];
 
   constructor() {}
 
@@ -17,19 +18,25 @@ export class HomeComponent {
 
   // initailizes the app
   private initilize() {
-    for (let i = 0; i < this.baseCount; i++) {
+    for (let i = 0; i < this.basecount; i++) {
       var tempPlayer2: BasePlayer = {
         name: 'siddesh' + i,
         team: 'Team-A',
         role: 'BL',
       };
       this.baseplayers[i] = tempPlayer2;
+      this.baseArray[i] = i;
     }
   }
 
   // when players are added
   public baseplayeradded() {
     console.log(this.baseplayers[1].role);
+  }
+  public setbasecount() {
+    this.baseplayers = [];
+    this.baseArray = [];
+    this.initilize();
   }
 }
 export interface BasePlayer {

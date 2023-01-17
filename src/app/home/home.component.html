@@ -1,4 +1,5 @@
-<p>Enter Base Player</p>
+Base Count : <input [(ngModel)]="basecount" />
+<button (click)="setbasecount()">Set Base</button>
 <table>
   <tr>
     <th>Player</th>
@@ -6,7 +7,7 @@
     <th>Role</th>
   </tr>
 
-  <tr *ngFor="let item of [0, 1, 2, 4, 5]">
+  <tr *ngFor="let item of baseArray">
     <td>
       <input name="bname{{ item }}" [(ngModel)]="baseplayers[item].name" />
     </td>
