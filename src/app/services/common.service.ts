@@ -6,17 +6,30 @@ import { Injectable } from '@angular/core';
 export class CommonService {
   constructor() {}
 
-  validateBase(basecount: Number, basePlayers: BasePlayer[]): string {
+  validateBase(basecount: Number, basePlayers: BasePlayer[]): Errors {
     console.log('in service');
+    let errors: Errors = { class: 'INFO', messages: ['All Good'] };
     for (let i = 0; i < basecount; i++) {
       let pname = basePlayers[i].name;
-      if (pname.includes('siddesh')) return 'error in name';
+      if (pname.includes('siddesh')) {
+        if (errors.class == 'INFO') {
+          //reset error
+          errors = { class: '', messages: [] };
+        }
+        errors.class = 'ERRR';
+        errors.messages.push('Error in Name:' + i);
+      }
     }
-    return 'good';
+    return errors;
   }
 }
 export interface BasePlayer {
   name: string;
   team: string;
   role: string;
+}
+
+export interface Errors {
+  messages: string[];
+  class: string;
 }

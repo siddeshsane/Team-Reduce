@@ -7,3 +7,12 @@ td {
   font-size: small;
   border: 1px solid;
 }
+
+.INFO {
+  color: green;
+  font: verdana;
+}
+.ERRR {
+  color: red;
+  font: verdana;
+}

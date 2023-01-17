@@ -27,7 +27,11 @@ Base Count : <input [(ngModel)]="basecount" />
     </td>
   </tr>
 </table>
-<span>{{errormsg}}</span>
+<div>
+  <div *ngFor="let msg of errormsgs.messages">
+    <span class="{{ errormsgs.class }}">{{ msg }}</span>
+  </div>
+</div>
 <hr />
 
 <button (click)="baseplayeradded()">Add Base</button>
