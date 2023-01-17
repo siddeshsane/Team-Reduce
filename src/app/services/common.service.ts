@@ -6,6 +6,61 @@ import { Injectable } from '@angular/core';
 export class CommonService {
   constructor() {}
 
+  getCombinations() {
+    var valuesArray = ['apple', 'banana', 'lemon', 'mango', 'lichi'];
+    var selection = 3;
+    var combi = [];
+    var temp = [];
+    var slent = Math.pow(2, valuesArray.length);
+
+    for (var i = 0; i < slent; i++) {
+      temp = [];
+      for (var j = 0; j < valuesArray.length; j++) {
+        if (i & Math.pow(2, j)) {
+          temp.push(valuesArray[j]);
+        }
+      }
+      if (temp.length > 0) {
+        combi.push(temp);
+      }
+    }
+
+    combi.sort((a, b) => a.length - b.length);
+    console.log(combi.join('\n'));
+    //return combi;
+  }
+  rotatePlayers(
+    rotatecount: Number,
+    selectioncount: Number,
+    basePlayers: Player[]
+  ) {
+    this.getCombinations();
+
+    var array = ['apple', 'banana', 'lemon', 'mango', 'lichi'];
+    var results = [];
+    console.log('in rot');
+    // Since you only want pairs, there's no reason
+    // to iterate over the last element directly
+    for (var i = 0; i < array.length - 1; i++) {
+      // This is where you'll capture that last value
+      for (var j = i + 1; j < array.length; j++) {
+        let last = array[j + 1];
+        if (last == undefined) last = array[i + 1];
+        let last2 = array[j + 2];
+        if (last == undefined) last = array[i + 2];
+        results.push(array[i] + ' ' + array[j] + ' ' + last + ' ' + last2);
+      }
+    }
+
+    console.log(results);
+  }
+
+  combinePlayers(
+    combinecount: Number,
+    selectioncount: Number,
+    basePlayers: Player[]
+  ) {}
+
   validateBase(basecount: Number, basePlayers: Player[]): Errors {
     console.log('in service');
     let errors: Errors = { class: 'INFO', messages: ['All Good'] };

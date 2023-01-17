@@ -45,10 +45,30 @@ export class HomeComponent {
       this.players
     );
     if (this.errormsgs.class == 'INFO') {
-      if (type == 'base') {
-        this.stoservice.BasePlayer = this.players;
+      switch (type) {
+        case 'base': {
+          this.stoservice.BasePlayer = this.players;
+          console.log(this.stoservice.BasePlayer);
+          break;
+        }
 
-        console.log(this.stoservice.BasePlayer);
+        case 'rotation': {
+          this.comservice.rotatePlayers(
+            this.totalcount,
+            this.selectioncount,
+            this.players
+          );
+
+          this.stoservice.RotationalPlayers = this.players;
+          console.log(this.stoservice.BasePlayer);
+          break;
+        }
+
+        case 'combination': {
+          this.stoservice.CombinationPlayers = this.players;
+          console.log(this.stoservice.BasePlayer);
+          break;
+        }
       }
     }
   }

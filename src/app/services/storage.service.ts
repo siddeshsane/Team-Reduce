@@ -7,6 +7,8 @@ import { Player } from '../services/common.service';
 export class StorageService {
   constructor() {}
   BasePlayer: Player[] = [];
+  RotationalPlayers: Player[] = [];
+  CombinationPlayers: Player[] = [];
 }
 export interface Team {
   id: number;

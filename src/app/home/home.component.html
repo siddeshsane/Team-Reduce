@@ -1,3 +1,51 @@
+1. Base Players
+
+<table>
+  <tr *ngFor="let item of this.stoservice.BasePlayer">
+    <td>
+      <span>{{ item.name }}</span>
+    </td>
+    <td>
+      <span>{{ item.team }}</span>
+    </td>
+    <td>
+      <span>{{ item.role }}</span>
+    </td>
+  </tr>
+</table>
+2. Rotainal Players
+
+<table>
+  <tr *ngFor="let item of this.stoservice.RotationalPlayers">
+    <td>
+      <span>{{ item.name }}</span>
+    </td>
+    <td>
+      <span>{{ item.team }}</span>
+    </td>
+    <td>
+      <span>{{ item.role }}</span>
+    </td>
+  </tr>
+</table>
+3. Combinational Players
+
+<table>
+  <tr *ngFor="let item of this.stoservice.CombinationPlayers">
+    <td>
+      <span>{{ item.name }}</span>
+    </td>
+    <td>
+      <span>{{ item.team }}</span>
+    </td>
+    <td>
+      <span>{{ item.role }}</span>
+    </td>
+  </tr>
+</table>
+<button>Generate</button>
+<hr />
+
 Total : <input [(ngModel)]="totalcount" /> Select :
 <input [(ngModel)]="selectioncount" /> &NonBreakingSpace;
 <button (click)="setcount()">Set</button>
@@ -35,6 +83,9 @@ Total : <input [(ngModel)]="totalcount" /> Select :
     <span class="{{ errormsgs.class }}">{{ msg }}</span>
   </div>
 </div>
-<hr />
 
-<button (click)="playersadded('base')">Add Base</button>
+<button name="addbase" (click)="playersadded('base')">Add Base</button
+>&NonBreakingSpace;
+<button name="addbase" (click)="playersadded('rotation')">Add Rotation</button
+>&NonBreakingSpace;
+<button (click)="playersadded('combination')">Add Combination</button>
