@@ -47,6 +47,8 @@ export class HomeComponent {
     if (this.errormsgs.class == 'INFO') {
       if (type == 'base') {
         this.stoservice.BasePlayer = this.players;
+
+        console.log(this.stoservice.BasePlayer);
       }
     }
   }
