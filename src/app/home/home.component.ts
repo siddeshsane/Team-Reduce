@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonService } from '../services/common.service';
 
 @Component({
   selector: 'home',
@@ -10,7 +11,9 @@ export class HomeComponent {
   basecount: Number;
   baseArray: number[] = [];
 
-  constructor() {}
+  constructor(commonservice: CommonService) {
+    commonservice.validateBase();
+  }
 
   ngOnInit() {
     this.initilize();
