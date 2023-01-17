@@ -1,5 +1,6 @@
-Base Count : <input [(ngModel)]="basecount" />
-<button (click)="setbasecount()">Set Base</button>
+Total : <input [(ngModel)]="totalcount" /> Select :
+<input [(ngModel)]="selectioncount" />
+<button (click)="setcount()">Set</button>
 <table>
   <tr>
     <th>Player</th>
@@ -9,16 +10,16 @@ Base Count : <input [(ngModel)]="basecount" />
 
   <tr *ngFor="let item of baseArray">
     <td>
-      <input name="bname{{ item }}" [(ngModel)]="baseplayers[item].name" />
+      <input name="bname{{ item }}" [(ngModel)]="players[item].name" />
     </td>
     <td>
-      <select name="bteam{{ item }}" [(ngModel)]="baseplayers[item].team">
+      <select name="bteam{{ item }}" [(ngModel)]="players[item].team">
         <option>Team-A</option>
         <option>Team-B</option>
       </select>
     </td>
     <td>
-      <select name="brole{{ item }}" [(ngModel)]="baseplayers[item].role">
+      <select name="brole{{ item }}" [(ngModel)]="players[item].role">
         <option>WK</option>
         <option>BT</option>
         <option>AL</option>
@@ -34,4 +35,4 @@ Base Count : <input [(ngModel)]="basecount" />
 </div>
 <hr />
 
-<button (click)="baseplayeradded()">Add Base</button>
+<button (click)="playersadded('base')">Add Base</button>

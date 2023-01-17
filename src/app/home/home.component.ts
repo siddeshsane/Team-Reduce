@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { BasePlayer, CommonService, Errors } from '../services/common.service';
+import { Player, CommonService, Errors } from '../services/common.service';
+import { StorageService } from '../services/storage.service';
 
 @Component({
   selector: 'home',
@@ -7,14 +8,17 @@ import { BasePlayer, CommonService, Errors } from '../services/common.service';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent {
-  baseplayers: BasePlayer[] = [];
-  basecount: Number;
+  players: Player[] = [];
+  totalcount: Number = 0;
+  selectioncount: Number = 0;
   baseArray: number[] = [];
   comservice: CommonService;
+  stoservice: StorageService;
   errormsgs: Errors = { class: 'INFO', messages: ['All Good'] };
 
-  constructor(commonservice: CommonService) {
+  constructor(commonservice: CommonService, storageservice: StorageService) {
     this.comservice = commonservice;
+    this.stoservice = storageservice;
   }
 
   ngOnInit() {
@@ -23,26 +27,33 @@ export class HomeComponent {
 
   // initailizes the app
   private initilize() {
-    for (let i = 0; i < this.basecount; i++) {
-      var tempPlayer2: BasePlayer = {
+    for (let i = 0; i < this.totalcount; i++) {
+      var tempPlayer2: Player = {
         name: 'siddesh' + i,
         team: 'Team-A',
         role: 'BL',
       };
-      this.baseplayers[i] = tempPlayer2;
+      this.players[i] = tempPlayer2;
       this.baseArray[i] = i;
     }
   }
 
   // when players are added
-  public baseplayeradded() {
+  public playersadded(type: string) {
     this.errormsgs = this.comservice.validateBase(
-      this.basecount,
-      this.baseplayers
+      this.totalcount,
+      this.players
     );
+    if (this.errormsgs.class == 'INFO') {
+      if (type == 'base') {
+        this.stoservice.BasePlayer = this.players;
+      }
+    }
   }
-  public setbasecount() {
-    this.baseplayers = [];
+  public setcount() {
+    if (this.totalcount == 0 || this.selectioncount == 0) return;
+
+    this.players = [];
     this.baseArray = [];
     this.initilize();
   }

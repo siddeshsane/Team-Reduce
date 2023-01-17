@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 export class CommonService {
   constructor() {}
 
-  validateBase(basecount: Number, basePlayers: BasePlayer[]): Errors {
+  validateBase(basecount: Number, basePlayers: Player[]): Errors {
     console.log('in service');
     let errors: Errors = { class: 'INFO', messages: ['All Good'] };
     for (let i = 0; i < basecount; i++) {
@@ -23,7 +23,7 @@ export class CommonService {
     return errors;
   }
 }
-export interface BasePlayer {
+export interface Player {
   name: string;
   team: string;
   role: string;
