@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonService } from '../services/common.service';
+import { BasePlayer, CommonService } from '../services/common.service';
 
 @Component({
   selector: 'home',
@@ -10,9 +10,11 @@ export class HomeComponent {
   baseplayers: BasePlayer[] = [];
   basecount: Number;
   baseArray: number[] = [];
+  comservice: CommonService;
+  errormsg: string;
 
   constructor(commonservice: CommonService) {
-    commonservice.validateBase();
+    this.comservice = commonservice;
   }
 
   ngOnInit() {
@@ -34,16 +36,14 @@ export class HomeComponent {
 
   // when players are added
   public baseplayeradded() {
-    console.log(this.baseplayers[1].role);
+    this.errormsg = this.comservice.validateBase(
+      this.basecount,
+      this.baseplayers
+    );
   }
   public setbasecount() {
     this.baseplayers = [];
     this.baseArray = [];
     this.initilize();
   }
-}
-export interface BasePlayer {
-  name: string;
-  team: string;
-  role: string;
 }
