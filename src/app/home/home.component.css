@@ -2,10 +2,19 @@ p {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: xx-large;
 }
+th {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: large;
+  border: 1px solid;
+  width: 70px;
+}
 td {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: small;
   border: 1px solid;
+}
+input {
+  width: 80px;
 }
 
 .INFO {
